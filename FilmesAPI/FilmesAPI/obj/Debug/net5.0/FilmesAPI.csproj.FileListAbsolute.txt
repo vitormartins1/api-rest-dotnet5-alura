@@ -19,7 +19,6 @@ F:\Alura\api-rest-dotnet5-alura\FilmesAPI\FilmesAPI\obj\Debug\net5.0\FilmesAPI.c
 F:\Alura\api-rest-dotnet5-alura\FilmesAPI\FilmesAPI\obj\Debug\net5.0\FilmesAPI.MvcApplicationPartsAssemblyInfo.cs
 F:\Alura\api-rest-dotnet5-alura\FilmesAPI\FilmesAPI\obj\Debug\net5.0\FilmesAPI.MvcApplicationPartsAssemblyInfo.cache
 F:\Alura\api-rest-dotnet5-alura\FilmesAPI\FilmesAPI\obj\Debug\net5.0\staticwebassets\FilmesAPI.StaticWebAssets.Manifest.cache
-F:\Alura\api-rest-dotnet5-alura\FilmesAPI\FilmesAPI\obj\Debug\net5.0\staticwebassets\FilmesAPI.StaticWebAssets.xml
 F:\Alura\api-rest-dotnet5-alura\FilmesAPI\FilmesAPI\obj\Debug\net5.0\scopedcss\bundle\FilmesAPI.styles.css
 F:\Alura\api-rest-dotnet5-alura\FilmesAPI\FilmesAPI\obj\Debug\net5.0\FilmesAPI.RazorTargetAssemblyInfo.cache
 F:\Alura\api-rest-dotnet5-alura\FilmesAPI\FilmesAPI\obj\Debug\net5.0\FilmesAPI.csproj.CopyComplete
