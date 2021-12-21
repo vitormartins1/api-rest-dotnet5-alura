@@ -1,12 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace FilmesAPI.Models
+namespace FilmesAPI.Data.Dtos
 {
-    public class Filme
+    public class CreateFilmeDto
     {
-        [Key]
-        [Required]
-        public int Id { get; set; }
         [Required]
         public string Titulo { get; set; }
         [Required]
