@@ -4,14 +4,16 @@ using FilmesAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FilmesAPI.Migrations
 {
     [DbContext(typeof(FilmeDBContext))]
-    partial class FilmeContextModelSnapshot : ModelSnapshot
+    [Migration("20220323004508_adicionando relacionamento da sessao entre cinema e filme")]
+    partial class adicionandorelacionamentodasessaoentrecinemaefilme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
