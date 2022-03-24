@@ -25,7 +25,7 @@ namespace FilmesAPI.Services
             return _mapper.Map<ReadGerenteDto>(gerente);
         }
 
-        public ReadGerenteDto RecuperaGerentesPorId(int id)
+        public ReadGerenteDto RecuperaGerentesPorId(int Id)
         {
             Gerente gerente = _context.Gerentes.FirstOrDefault(gerente => gerente.Id == Id);
             if (gerente != null)
