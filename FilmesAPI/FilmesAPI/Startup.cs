@@ -14,6 +14,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using FilmesAPI.Services;
 
 namespace FilmesAPI
 {
@@ -32,6 +33,11 @@ namespace FilmesAPI
 			services.AddDbContext<FilmeDBContext>(
 				options => options.UseLazyLoadingProxies().UseSqlServer(
 					Configuration.GetConnectionString("FilmeConnection")));
+			services.AddScoped<FilmeService, FilmeService>();
+			services.AddScoped<CinemaService, CinemaService>();
+			services.AddScoped<EnderecoService, EnderecoService>();
+			services.AddScoped<SessaoService, SessaoService>();
+			services.AddScoped<GerenteService, GerenteService>();
 			services.AddControllers();
 			services.AddSwaggerGen(c =>
 			{
