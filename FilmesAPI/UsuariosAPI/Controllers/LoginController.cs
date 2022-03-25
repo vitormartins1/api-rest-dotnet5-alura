@@ -1,6 +1,7 @@
 ﻿using FluentResults;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UsuariosAPI.Data.Requests;
 using UsuariosAPI.Models;
 using UsuariosAPI.Services;
 
@@ -27,6 +28,19 @@ namespace UsuariosAPI.Controllers
             }
 
             return Ok(resultado.Successes);
+        }
+
+        [HttpPost("/solicita-reset")]
+        public IActionResult SolicitaResetSenhaUsuario(SolicitaResetRequest request)
+        {
+            Result result = _loginService.SolicitaResetSenhaUsuario(request);
+
+            if (result.IsFailed)
+            {
+                return Unauthorized(result.Errors);
+            }
+
+            return Ok(result.Successes);
         }
     }
 }
