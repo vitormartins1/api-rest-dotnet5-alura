@@ -11,8 +11,9 @@ namespace UsuariosAPI.Data.DTOs
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+        [DataType(DataType.Password)]
         [Required]
-        [Compare("Password", ErrorMessage = "Error password.")]
+        [Compare("Password")]
         public string RePassword { get; set; }
     }
 }
