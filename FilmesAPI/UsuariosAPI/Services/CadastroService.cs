@@ -14,11 +14,11 @@ namespace UsuariosAPI.Services
     public class CadastroService
     {
         private IMapper _mapper;
-        private UserManager<IdentityUser<int>> _userManager;
+        private UserManager<CustomIdentityUser> _userManager;
         private EmailService _emailService;
 
-        public CadastroService(IMapper mapper, EmailService emailService, 
-            UserManager<IdentityUser<int>> userManager)
+        public CadastroService(IMapper mapper, EmailService emailService,
+            UserManager<CustomIdentityUser> userManager, RoleManager<IdentityRole<int>> roleManager)
         {
             _mapper = mapper;
             _emailService = emailService;
@@ -28,10 +28,13 @@ namespace UsuariosAPI.Services
         public Result CadastraUsuario(CreateUsuarioDTO createDTO)
         {
             Usuario usuario = _mapper.Map<Usuario>(createDTO);
-            IdentityUser<int> identityUser = _mapper.Map<IdentityUser<int>>(usuario);
-            Task<IdentityResult> resultadoIdentity = _userManager
-                .CreateAsync(identityUser, createDTO.Password);
-            if (resultadoIdentity.Result.Succeeded)
+            CustomIdentityUser identityUser = _mapper.Map<CustomIdentityUser>(usuario);
+            var resultadoIdentity = _userManager
+                .CreateAsync(identityUser, createDTO.Password).Result;
+
+            _userManager.AddToRoleAsync(identityUser, "regular");
+
+            if (resultadoIdentity.Succeeded)
             {
                 var code = _userManager.GenerateEmailConfirmationTokenAsync(identityUser).Result;
                 var encodedCode = HttpUtility.UrlEncode(code);

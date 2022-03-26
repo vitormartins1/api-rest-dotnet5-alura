@@ -8,6 +8,7 @@ using FilmesAPI.Data.Dtos;
 using AutoMapper;
 using FilmesAPI.Services;
 using FluentResults;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FilmesAPI.Controllers
 {
@@ -23,6 +24,7 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles  = "admin")]
         public IActionResult AdicionaFilme([FromBody] CreateFilmeDto filmeDto)
         {
             ReadFilmeDto readDto = _filmeService.AdicionaFilme(filmeDto);
@@ -30,9 +32,8 @@ namespace FilmesAPI.Controllers
             return CreatedAtAction(nameof(RecuperaFilmesPorId), new { Id = readDto.Id }, readDto);
         }
 
-        //[HttpGet]
-        //public IActionResult RecuperaFilmes() => Ok(_context.Filmes);
         [HttpGet]
+        [Authorize(Roles = "admin, regular", Policy = "IdadeMinima")]
         public IActionResult RecuperaFilmes([FromQuery] int? classificacaoEtaria = null)
         {
             List<ReadFilmeDto> readDto = _filmeService.RecuperaFilmes(classificacaoEtaria);

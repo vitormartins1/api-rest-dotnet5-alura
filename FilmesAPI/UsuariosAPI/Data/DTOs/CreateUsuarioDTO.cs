@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace UsuariosAPI.Data.DTOs
 {
@@ -15,5 +16,7 @@ namespace UsuariosAPI.Data.DTOs
         [Required]
         [Compare("Password")]
         public string RePassword { get; set; }
+        [Required]
+        public DateTime DataNascimento { get; set; }
     }
 }

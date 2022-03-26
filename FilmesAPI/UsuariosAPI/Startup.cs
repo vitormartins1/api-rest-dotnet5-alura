@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UsuariosAPI.Data;
+using UsuariosAPI.Models;
 using UsuariosAPI.Services;
 
 namespace UsuariosAPI
@@ -33,7 +34,7 @@ namespace UsuariosAPI
             services.AddDbContext<UserDbContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("UsuarioConnection"))
             );
-            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(
+            services.AddIdentity<CustomIdentityUser, IdentityRole<int>>(
                     options => options.SignIn.RequireConfirmedEmail = true
                 )
                 .AddEntityFrameworkStores<UserDbContext>()
